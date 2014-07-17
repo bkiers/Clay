@@ -301,15 +301,15 @@ public abstract class SimpleInput implements Input {
 
     /**
      * Returns {@code true} iff the {@code substring} at the given {@code index}
-     * can be seen from the {@link this#input}.
+     * can be seen from the {@link #input}.
      *
      * @param substring
      *         the sub string to check.
      * @param index
-     *         the index from the {@link this#input} to start looking ahead from.
+     *         the index from the {@link #input} to start looking ahead from.
      *
      * @return {@code true} iff the {@code substring} at the given {@code index}
-     * can be seen from the {@link this#input}.
+     * can be seen from the {@link #input}.
      */
     protected boolean ahead(String substring, int index) {
 

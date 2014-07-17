@@ -12,13 +12,13 @@ package clay.filter;
  * <code>
  * Input input = new Input("a,b,c\n1,2,3")
  *     .with(new Filter() {
- *         @Override
+ *         \@Override
  *         public String apply(int rowIndex, int columnIndex, String value) {
  *             return columnIndex == 1 ? null : value.toUpperCase();
  *         }
  *     });
  *
- * List<List<String>> records = input.getRecords();
+ * List&lt;List&lt;String&gt;&gt; records = input.getRecords();
  *
  * assertThat(records.size(), is(2));
  *

@@ -1,7 +1,6 @@
 package clay;
 
 import clay.input.Input;
-import clay.input.StringInput;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
@@ -40,11 +39,11 @@ import java.util.*;
  *                                      "Sara,28"));
  *
  * for (User user : clay.as(User.class)) {
- *   System.out.println(user.name + " --> " + user.age);
+ *   System.out.println(user.name + " " + user.age);
  * }
  *
- * // John --> 42
- * // Sara --> 28
+ * // John 42
+ * // Sara 28
  * </code>
  * </pre>
  */
@@ -133,6 +132,8 @@ public class Clay {
      *
      * @param type
      *         the type to convert each record from the  {@code input} to.
+     * @param <T>
+     *         the generic type of the Java class the input should be converted to.
      *
      * @return a list of values of a specific {@code type} from all records of
      * the {@code input}.
