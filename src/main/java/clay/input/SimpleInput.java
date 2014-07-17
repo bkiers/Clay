@@ -102,19 +102,7 @@ public abstract class SimpleInput implements Input {
     }
 
     /**
-     * Adds a filter which will be applied to all CSV cells when
-     * parsing the input.
-     *
-     * @param filter
-     *         the filter to add.
-     *
-     * @return this instance.
-     *
-     * @throws IllegalArgumentException
-     *         when the {@code filter} is {@code null}.
-     * @throws IllegalStateException
-     *         when the input is already parsed, which is done when
-     *         {@link #getRecords()} is first called.
+     * {@inheritDoc}
      */
     @Override
     public Input with(Filter filter) throws IllegalArgumentException, IllegalStateException {
@@ -133,19 +121,7 @@ public abstract class SimpleInput implements Input {
     }
 
     /**
-     * Removes a filter which will not be applied to all CSV cells when
-     * parsing the input.
-     *
-     * @param filterType
-     *         the filter type to remove.
-     *
-     * @return this instance.
-     *
-     * @throws IllegalArgumentException
-     *         when the {@code filter} is {@code null}.
-     * @throws IllegalStateException
-     *         when the input is already parsed, which is done when
-     *         {@link #getRecords()} is first called.
+     * {@inheritDoc}
      */
     @Override
     public Input without(Class<? extends Filter> filterType) throws IllegalArgumentException, IllegalStateException {
@@ -164,9 +140,7 @@ public abstract class SimpleInput implements Input {
     }
 
     /**
-     * Returns the CSV input.
-     *
-     * @return the CSV input.
+     * {@inheritDoc}
      */
     @Override
     public String getInput() {
@@ -174,9 +148,7 @@ public abstract class SimpleInput implements Input {
     }
 
     /**
-     * Returns the CSV cell delimiter.
-     *
-     * @return the CSV cell delimiter.
+     * {@inheritDoc}
      */
     @Override
     public String getDelimiter() {
@@ -184,9 +156,7 @@ public abstract class SimpleInput implements Input {
     }
 
     /**
-     * Returns the CSV cell quotation.
-     *
-     * @return the CSV cell quotation.
+     * {@inheritDoc}
      */
     @Override
     public String getQuotation() {
@@ -194,9 +164,7 @@ public abstract class SimpleInput implements Input {
     }
 
     /**
-     * Returns the CSV cell quotation escape.
-     *
-     * @return the CSV cell quotation escape.
+     * {@inheritDoc}
      */
     @Override
     public String getEscapeQuotation() {
@@ -204,9 +172,7 @@ public abstract class SimpleInput implements Input {
     }
 
     /**
-     * Returns the mark for the CSV record.
-     *
-     * @return the mark for the CSV record.
+     * {@inheritDoc}
      */
     @Override
     public String getRecordEnd() {
@@ -214,9 +180,7 @@ public abstract class SimpleInput implements Input {
     }
 
     /**
-     * Returns a shallow copy of the parsed {@code input} as a 2D list of strings.
-     *
-     * @return a shallow copy of the parsed {@code input} as a 2D list of strings.
+     * {@inheritDoc}
      */
     @Override
     public List<List<String>> getRecords() {

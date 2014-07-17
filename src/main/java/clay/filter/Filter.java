@@ -2,8 +2,8 @@ package clay.filter;
 
 /**
  * An interface that describes a filter through which each data cell will be
- * passed through. A filter can be used to change the original value or to
- * omit it entirely.
+ * passed. A filter can be used to change the original value or to omit it
+ * entirely.
  *
  * For example, if you'd like to remove the 2nd column from your input and
  * upper case the remaining values, you could do something like this:
@@ -12,7 +12,7 @@ package clay.filter;
  * <code>
  * Input input = new Input("a,b,c\n1,2,3")
  *     .with(new Filter() {
- *         \@Override
+ *         &#64;Override
  *         public String apply(int rowIndex, int columnIndex, String value) {
  *             return columnIndex == 1 ? null : value.toUpperCase();
  *         }
