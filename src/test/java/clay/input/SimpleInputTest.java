@@ -55,7 +55,7 @@ public class SimpleInputTest {
     @Test(expected = IllegalStateException.class)
     public void with_AlreadyParsed_ShouldThrowException() {
 
-        Input input = new StringInput("a,b,c");
+        CSVInput input = new StringInput("a,b,c");
 
         // parse it
         input.getRecords();
@@ -67,7 +67,7 @@ public class SimpleInputTest {
     @Test(expected = IllegalStateException.class)
     public void without_AlreadyParsed_ShouldThrowException() {
 
-        Input input = new StringInput("a,b,c");
+        CSVInput input = new StringInput("a,b,c");
 
         // parse it
         input.getRecords();
@@ -78,15 +78,15 @@ public class SimpleInputTest {
 
     @Test
     public void getInput_NormalUse_ShouldReturnExpectedValue() {
-        Input input = new StringInput("a,b,c");
+        CSVInput input = new StringInput("a,b,c");
         assertThat(input.getInput(), is("a,b,c"));
     }
 
     @Test
     public void getDelimiter_NormalUse_ShouldReturnExpectedValue() {
 
-        Input input = new StringInput("a,b,c");
-        assertThat(input.getDelimiter(), is(Input.DEFAULT_DELIMITER));
+        CSVInput input = new StringInput("a,b,c");
+        assertThat(input.getDelimiter(), is(CSVInput.DEFAULT_DELIMITER));
 
         input = new StringInput("a,b,c", "|");
         assertThat(input.getDelimiter(), is("|"));
@@ -95,8 +95,8 @@ public class SimpleInputTest {
     @Test
     public void getQuotation_NormalUse_ShouldReturnExpectedValue() {
 
-        Input input = new StringInput("a,b,c");
-        assertThat(input.getQuotation(), is(Input.DEFAULT_QUOTATION));
+        CSVInput input = new StringInput("a,b,c");
+        assertThat(input.getQuotation(), is(CSVInput.DEFAULT_QUOTATION));
 
         input = new StringInput("a,b,c", ",", "#", "\\");
         assertThat(input.getQuotation(), is("#"));
@@ -105,8 +105,8 @@ public class SimpleInputTest {
     @Test
     public void getEscapeQuotation_NormalUse_ShouldReturnExpectedValue() {
 
-        Input input = new StringInput("a,b,c");
-        assertThat(input.getEscapeQuotation(), is(Input.DEFAULT_ESCAPE_QUOTATION));
+        CSVInput input = new StringInput("a,b,c");
+        assertThat(input.getEscapeQuotation(), is(CSVInput.DEFAULT_ESCAPE_QUOTATION));
 
         input = new StringInput("a,b,c", ",", "#", "\\");
         assertThat(input.getEscapeQuotation(), is("\\"));
@@ -115,8 +115,8 @@ public class SimpleInputTest {
     @Test
     public void getRecordEnd_NormalUse_ShouldReturnExpectedValue() {
 
-        Input input = new StringInput("a,b,c");
-        assertThat(input.getRecordEnd(), is(Input.DEFAULT_RECORD_END));
+        CSVInput input = new StringInput("a,b,c");
+        assertThat(input.getRecordEnd(), is(CSVInput.DEFAULT_RECORD_END));
 
         input = new StringInput("a,b,c", ",", "#", "\\", "\t\t\t");
         assertThat(input.getRecordEnd(), is("\t\t\t"));
@@ -129,7 +129,7 @@ public class SimpleInputTest {
                 "11,12,13\n" +
                 "21,22,23";
 
-        Input input = new StringInput(csv).with(new Filter(){
+        CSVInput input = new StringInput(csv).with(new Filter(){
             @Override
             public String apply(int rowIndex, int columnIndex, String value) {
                 return rowIndex == 0 ? null : value;
@@ -150,7 +150,7 @@ public class SimpleInputTest {
                 "11,12,13\n" +
                 "21,22,23";
 
-        Input input = new StringInput(csv).with(new Filter(){
+        CSVInput input = new StringInput(csv).with(new Filter(){
             @Override
             public String apply(int rowIndex, int columnIndex, String value) {
                 return columnIndex == 2 ? null : value;
@@ -175,7 +175,7 @@ public class SimpleInputTest {
         String csv = "a⅀b⅀c\n" +
                 "1⅀ℋ2⅀\\ℋ2⅀2ℋ⅀3";
 
-        Input input = new StringInput(csv, delimiter, quotation, escapeQuotation);
+        CSVInput input = new StringInput(csv, delimiter, quotation, escapeQuotation);
 
         List<List<String>> records = input.getRecords();
 

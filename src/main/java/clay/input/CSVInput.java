@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * An interface that describes a CSV input.
  */
-public interface Input extends Serializable {
+public interface CSVInput extends Serializable {
 
     /**
      * The default delimiter that separates CSV cells: {@value}
@@ -45,7 +45,7 @@ public interface Input extends Serializable {
      *         when the input is already parsed, which is done when
      *         {@link #getRecords()} is first called.
      */
-    Input with(Filter filter);
+    CSVInput with(Filter filter);
 
     /**
      * Removes a filter which will not be applied to all CSV cells when
@@ -62,7 +62,7 @@ public interface Input extends Serializable {
      *         when the input is already parsed, which is done when
      *         {@link #getRecords()} is first called.
      */
-    Input without(Class<? extends Filter> filterType);
+    CSVInput without(Class<? extends Filter> filterType);
 
     /**
      * Returns the CSV input.

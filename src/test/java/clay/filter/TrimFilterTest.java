@@ -1,6 +1,6 @@
 package clay.filter;
 
-import clay.input.Input;
+import clay.input.CSVInput;
 import clay.input.StringInput;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class TrimFilterTest {
     @Test
     public void with_TrimFilter_ShouldTrimCells() {
 
-        Input input = new StringInput(" a , b , c \n 1, \" 2 \" ,3    ").with(new TrimFilter());
+        CSVInput input = new StringInput(" a , b , c \n 1, \" 2 \" ,3    ").with(new TrimFilter());
 
         List<List<String>> records = input.getRecords();
 
@@ -28,7 +28,7 @@ public class TrimFilterTest {
     @Test
     public void without_TrimFilter_ShouldNotTrimCells() {
 
-        Input input = new StringInput(" a , b , c \n 1 , 2 , 3 ")
+        CSVInput input = new StringInput(" a , b , c \n 1 , 2 , 3 ")
                 .without(TrimFilter.class);
 
         List<List<String>> records = input.getRecords();

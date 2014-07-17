@@ -13,7 +13,7 @@ public class FileInputTest {
     @Test
     public void getRecords_DefaultDelimiter_ShouldReturnExpectedValue() throws Exception {
 
-        Input input = new FileInput(new File("src/test/resources/test.csv"));
+        CSVInput input = new FileInput(new File("src/test/resources/test.csv"));
 
         List<List<String>> records = input.getRecords();
 
@@ -23,7 +23,7 @@ public class FileInputTest {
     @Test
     public void getRecords_CustomDelimiter_ShouldReturnExpectedValue() throws Exception {
 
-        Input input = new FileInput(new File("src/test/resources/addresses.csv"), "|");
+        CSVInput input = new FileInput(new File("src/test/resources/addresses.csv"), "|");
 
         List<List<String>> records = input.getRecords();
 

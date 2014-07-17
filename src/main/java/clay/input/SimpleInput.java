@@ -11,7 +11,7 @@ import java.util.List;
  * Represents a simple CSV input backed up by a plain {@code String} which
  * this class will parse into a 2D list of strings.
  */
-public abstract class SimpleInput implements Input {
+public abstract class SimpleInput implements CSVInput {
 
     /**
      * A map holding filters that will be applied (in order!) to all
@@ -105,7 +105,7 @@ public abstract class SimpleInput implements Input {
      * {@inheritDoc}
      */
     @Override
-    public Input with(Filter filter) throws IllegalArgumentException, IllegalStateException {
+    public CSVInput with(Filter filter) throws IllegalArgumentException, IllegalStateException {
 
         if (filter == null) {
             throw new IllegalArgumentException("filter == null");
@@ -124,7 +124,7 @@ public abstract class SimpleInput implements Input {
      * {@inheritDoc}
      */
     @Override
-    public Input without(Class<? extends Filter> filterType) throws IllegalArgumentException, IllegalStateException {
+    public CSVInput without(Class<? extends Filter> filterType) throws IllegalArgumentException, IllegalStateException {
 
         if (filterType == null) {
             throw new IllegalArgumentException("filterType == null");

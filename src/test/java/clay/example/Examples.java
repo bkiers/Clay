@@ -3,7 +3,7 @@ package clay.example;
 import clay.Clay;
 import clay.filter.Filter;
 import clay.filter.TrimFilter;
-import clay.input.Input;
+import clay.input.CSVInput;
 import clay.input.StringInput;
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class Examples {
     @Test
     public void example1() {
 
-        Input input = new StringInput("name,age\n\"John,\"\"A.\",24\nSara,31\nPete,18");
+        CSVInput input = new StringInput("name,age\n\"John,\"\"A.\",24\nSara,31\nPete,18");
         List<List<String>> data = input.getRecords();
 
         // The input has 4 records (1 header and 3 records).
@@ -37,7 +37,7 @@ public class Examples {
     @Test
     public void example2() {
 
-        Input input = new StringInput("John,24\nSara,31\nPete,18");
+        CSVInput input = new StringInput("John,24\nSara,31\nPete,18");
         Clay clay = new Clay(input, "name", "age");
         List<User> users = clay.as(User.class);
 
@@ -54,7 +54,7 @@ public class Examples {
                 "Rotterdam, 51.930724, 4.481480\n" +
                 "Moscow, 55.760611, 37.618762";
 
-        Input input = new StringInput(csv);
+        CSVInput input = new StringInput(csv);
         Clay clay = new Clay(input);
         List<City> cities = clay.as(City.class);
 
@@ -72,7 +72,7 @@ public class Examples {
                 "NOISE, Rotterdam, 51.930724, 4.481480\n" +
                 "NOISE, Moscow, 55.760611, 37.618762";
 
-        Input input = new StringInput(csv).with(new Filter(){
+        CSVInput input = new StringInput(csv).with(new Filter(){
             @Override
             public String apply(int rowIndex, int columnIndex, String value) {
 
@@ -101,7 +101,7 @@ public class Examples {
         String csvWithTrailingSpaces = "John ,24\nSara ,31\nPete ,18";
 
         // Default: with the TrimFilter
-        Input input = new StringInput(csvWithTrailingSpaces);
+        CSVInput input = new StringInput(csvWithTrailingSpaces);
         Clay clay = new Clay(input, "name", "age");
         List<User> users = clay.as(User.class);
 
@@ -122,13 +122,13 @@ public class Examples {
     @Test
     public void example6() {
 
-        Input input1 = new StringInput("\"John, A.\",24\nSara,31\nPete,18");
+        CSVInput input1 = new StringInput("\"John, A.\",24\nSara,31\nPete,18");
 
         // delimiter        -> |
         // quotation        -> #
         // escape quotation -> \
         // end of record    -> ⅀⅀⅀
-        Input input2 = new StringInput("#John, A.#|24⅀⅀⅀Sara|31⅀⅀⅀Pete|18",
+        CSVInput input2 = new StringInput("#John, A.#|24⅀⅀⅀Sara|31⅀⅀⅀Pete|18",
                 "|", "#", "\\", "⅀⅀⅀");
 
         assertThat(input1.getRecords(), is(input2.getRecords()));
@@ -142,7 +142,7 @@ public class Examples {
                 "Rotterdam, 51.930724, 4.481480\n" +
                 "Moscow, 55.760611, 37.618762";
 
-        Input input = new StringInput(csv).with(new Filter(){
+        CSVInput input = new StringInput(csv).with(new Filter(){
             @Override
             public String apply(int rowIndex, int columnIndex, String value) {
 

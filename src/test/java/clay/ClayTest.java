@@ -1,7 +1,7 @@
 package clay;
 
 import clay.input.FileInput;
-import clay.input.Input;
+import clay.input.CSVInput;
 import clay.input.StringInput;
 import org.junit.Test;
 
@@ -60,7 +60,7 @@ public class ClayTest {
     @Test
     public void as_NonNullsFile_ShouldAllMapToNonNulls() throws Exception {
 
-        Input input = new FileInput(new File("src/test/resources/addresses.csv"), "|");
+        CSVInput input = new FileInput(new File("src/test/resources/addresses.csv"), "|");
         Clay clay = new Clay(input);
 
         List<Person> people = clay.as(Person.class);
@@ -81,7 +81,7 @@ public class ClayTest {
     public void testWithAndWithoutHeaders() {
 
         // With headers in the input
-        Input input = new StringInput("street,number,zipcode,country,location.latitude,location.longitude,city\n" +
+        CSVInput input = new StringInput("street,number,zipcode,country,location.latitude,location.longitude,city\n" +
                 "Kruiskade,1,2394CM,\"The Netherlands\",51.923626,4.477680,Rotterdam");
         Clay clay = new Clay(input);
         List<Address> addresses = clay.as(Address.class);
@@ -119,7 +119,7 @@ public class ClayTest {
     @Test
     public void deeplyNestedFieldsTest() {
 
-        Input input = new StringInput("b.c.d.e.x\nMU");
+        CSVInput input = new StringInput("b.c.d.e.x\nMU");
         Clay clay = new Clay(input);
         List<A> as = clay.as(A.class);
 

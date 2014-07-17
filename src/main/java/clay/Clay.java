@@ -1,6 +1,6 @@
 package clay;
 
-import clay.input.Input;
+import clay.input.CSVInput;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
@@ -69,7 +69,7 @@ public class Clay {
      *         when the input contains less than 2 records, or the header (the first
      *         record) is empty.
      */
-    public Clay(Input input) throws IllegalArgumentException {
+    public Clay(CSVInput input) throws IllegalArgumentException {
 
         this.records = input.getRecords();
 
@@ -93,7 +93,7 @@ public class Clay {
      * @throws IllegalArgumentException
      *         when the input contains no records, or the header is empty.
      */
-    public Clay(Input input, String... headers) {
+    public Clay(CSVInput input, String... headers) {
         this(input, Arrays.asList(headers));
     }
 
@@ -108,7 +108,7 @@ public class Clay {
      * @throws IllegalArgumentException
      *         when the input contains no records, or the header is empty.
      */
-    public Clay(Input input, List<String> headers) {
+    public Clay(CSVInput input, List<String> headers) {
         this.records = input.getRecords();
         this.headers = new ArrayList<String>(headers);
         check();

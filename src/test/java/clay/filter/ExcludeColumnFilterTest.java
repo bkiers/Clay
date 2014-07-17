@@ -1,6 +1,6 @@
 package clay.filter;
 
-import clay.input.Input;
+import clay.input.CSVInput;
 import clay.input.StringInput;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class ExcludeColumnFilterTest {
     public void with_ExcludeColumnFilter_ShouldReturnExpectedValues() {
 
         // Test 1
-        Input input = new StringInput("11,12,13\n" + // 0
+        CSVInput input = new StringInput("11,12,13\n" + // 0
                 "21,22,23\n" + // 1
                 "31,32,33\n" + // 2
                 "41,42,43\n" + // 3

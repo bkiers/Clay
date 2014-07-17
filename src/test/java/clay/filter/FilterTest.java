@@ -1,6 +1,6 @@
 package clay.filter;
 
-import clay.input.Input;
+import clay.input.CSVInput;
 import clay.input.StringInput;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class FilterTest {
     @Test
     public void with_MultipleFilters_LastFilterShouldApply() {
 
-        Input input = new StringInput("a        , B , c")
+        CSVInput input = new StringInput("a        , B , c")
                 .with(new TrimFilter())
                 .with(new Filter() {
                     @Override
@@ -42,7 +42,7 @@ public class FilterTest {
     @Test
     public void with_CustomFilterSkipColumn_ShouldSkipColumn() {
 
-        Input input = new StringInput("a,b,c\n1,2,3")
+        CSVInput input = new StringInput("a,b,c\n1,2,3")
                 .with(new Filter() {
                     @Override
                     public String apply(int rowIndex, int columnIndex, String value) {

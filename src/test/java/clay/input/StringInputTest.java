@@ -12,7 +12,7 @@ public class StringInputTest {
     @Test
     public void quotationTest() {
 
-        Input input = new StringInput("\"a b\",12,34\n" +
+        CSVInput input = new StringInput("\"a b\",12,34\n" +
                 "01,\"a\"\"b\" ,, 12,34");
 
         assertThat(input.getRecords().size(), is(2));
@@ -24,7 +24,7 @@ public class StringInputTest {
     @Test
     public void delimiterTest() {
 
-        Input input = new StringInput("1\t2\t3", "\t");
+        CSVInput input = new StringInput("1\t2\t3", "\t");
         assertThat(input.getRecords().size(), is(1));
         assertThat(input.getRecords().get(0), is(Arrays.asList("1", "2", "3")));
 
