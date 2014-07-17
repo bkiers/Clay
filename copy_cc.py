@@ -29,13 +29,14 @@ for root, dirnames, filenames in os.walk(cc_source_dir):
     original_file = os.path.join(root, filename)
     
     # Create the path to the new location.
-    copy_file = original_file.replace(cc_source_dir, cc_target_dir)
+    copy_file = original_file.replace(cc_source_dir, cc_target_dir).replace('.classes', 'classes')
     copy_dir = os.path.dirname(os.path.realpath(copy_file))
     mkdir_p(copy_dir)
     
     # Read the HTML and replace the import-statement with the CSS.
     html = open(os.path.join(root, filename)).read()
     html = re.sub(r'[ \t]*@import.*?coverage.css";', css, html)
+    html = html.replace('.classes', 'classes')
     
     # Write the modified HTML to the new file.
     out = open(copy_file, 'w')
