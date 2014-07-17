@@ -3,7 +3,9 @@
 A small library to parse CSV files and optionally map the records
 from the CSV file to a Java class.
  
-API docs: [bkiers.github.io/Clay/apidocs](http://bkiers.github.io/Clay/apidocs)
+API docs: [bkiers.github.io/Clay/site/apidocs](http://bkiers.github.io/Clay/site/apidocs)
+
+Code coverage report: [bkiers.github.io/Clay/site/cc](http://bkiers.github.io/Clay/site/cc)
 
 # Install
 
