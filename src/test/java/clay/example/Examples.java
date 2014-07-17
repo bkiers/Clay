@@ -18,7 +18,7 @@ public class Examples {
     @Test
     public void example1() {
 
-        Input input = new StringInput("name,age\nJohn,24\nSara,31\nPete,18");
+        Input input = new StringInput("name,age\n\"John,\"\"A.\",24\nSara,31\nPete,18");
         List<List<String>> data = input.getRecords();
 
         // The input has 4 records (1 header and 3 records).
@@ -30,7 +30,7 @@ public class Examples {
 
         // The header is omitted when mapping to a Java class.
         assertThat(users.size(), is(3));
-        assertThat(users.get(0).getName(), is("John"));
+        assertThat(users.get(0).getName(), is("John,\"A."));
         assertThat(users.get(2).getAge(), is(18));
     }
 

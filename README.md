@@ -69,7 +69,7 @@ Below is some basic usage on how to retrieve the raw 2D data from the `input`
 and how to map this input to a `User` class using `Clay`:
 
 ```java
-Input input = new StringInput("name,age\nJohn,24\nSara,31\nPete,18");
+Input input = new StringInput("name,age\n\"John,\"\"A.\",24\nSara,31\nPete,18");
 List<List<String>> data = input.getRecords();
 
 // The input has 4 records (1 header and 3 records).
@@ -81,7 +81,7 @@ List<User> users = clay.as(User.class);
 
 // The header is omitted when mapping to a Java class.
 assertThat(users.size(), is(3));
-assertThat(users.get(0).getName(), is("John"));
+assertThat(users.get(0).getName(), is("John,\"A."));
 assertThat(users.get(2).getAge(), is(18));
 ```
 
