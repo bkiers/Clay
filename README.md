@@ -1,4 +1,4 @@
-# Clay
+# Clay &nbsp; [![Build Status](https://travis-ci.org/bkiers/Clay.png)](https://travis-ci.org/bkiers/Clay)
 
 A small library to parse CSV files and optionally map the records
 from the CSV file to a Java class.
