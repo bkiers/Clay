@@ -7,7 +7,6 @@ API docs: [bkiers.github.io/Clay/site/apidocs](http://bkiers.github.io/Clay/site
 
 Code coverage report: [bkiers.github.io/Clay/site/cc](http://bkiers.github.io/Clay/site/cc)
 
-
 # Install
 
 To install/build, do the following:
